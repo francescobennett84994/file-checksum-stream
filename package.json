@@ -1,0 +1,17 @@
+{
+  "name": "file-checksum-stream",
+  "version": "0.1.0",
+  "description": "Computes MD5, SHA1, or SHA256 hashes of files using Node crypto streams without buffering entire files.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {}
+}
