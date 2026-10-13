@@ -31,3 +31,10 @@ The problem is simple: hashing a multi-gigabyte file should not allocate a multi
 - **Directories.** Passing a directory path rejects with either `EISDIR` or `ENOENT` depending on platform and Node version. The library does not paper over this; check your input.
 - **Empty files.** Hash correctly to the well-known empty-input digest (`md5` → `d41d8cd98f00b204e9800998ecf8427e`). This is tested because the "zero chunks" path is the easiest place for an off-by-one to hide.
 - **MD5 and SHA1 are not collision-resistant.** They are included because checksum tooling (e.g. legacy package registries) still uses them, not because they are safe for integrity verification against an adversary. Prefer `sha256` for anything security-relevant.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
