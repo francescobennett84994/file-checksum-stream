@@ -1,6 +1,6 @@
 {
   "name": "file-checksum-stream",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Computes MD5, SHA1, or SHA256 hashes of files using Node crypto streams without buffering entire files.",
   "type": "module",
   "main": "src/index.js",
